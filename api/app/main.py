@@ -1,12 +1,13 @@
 from fastapi import FastAPI
 
 from app.core.errors import register_error_handlers
-from app.routers import auth, equipment
+from app.routers import auth, equipment, loans
 
 app = FastAPI(title="Posudba opreme")
 register_error_handlers(app)
 app.include_router(auth.router)
 app.include_router(equipment.router)
+app.include_router(loans.router)
 
 
 @app.get("/health")
